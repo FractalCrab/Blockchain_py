@@ -22,7 +22,10 @@ class Blockchain:
     def add_block(self,transactions):
         previous_block_hash=self.chain[len(self.chain)-1].hash
         new_block=Block(transactions,previous_block_hash)
+        new_block.generate_hash()
+        proof=self.proof_of_work(new_block)
         self.chain.append(new_block)
+        return proof,new_block
 
     """for checking and validatign chain"""
     def check_chain(self):
@@ -37,3 +40,13 @@ class Blockchain:
         print("The previous block's hash is not equal to the previous hash value stored in the current block.")
         return False
       return True
+    
+    def proof_of_work(self,block,difficulty=2):
+      proof=block.generate_hash()
+      while proof[:difficulty]!='0'*difficulty:
+        block.nonce +=1
+        proof=block.generate_hash()
+      block.nonce=0
+      return proof
+
+ 
