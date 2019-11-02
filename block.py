@@ -1,7 +1,7 @@
 '''Importing datetime library for recording timestamp'''
 from datetime import datetime
 
-from hashlib impirt sha256
+from hashlib import sha256
 
 #creating a block for blockhchain
 
