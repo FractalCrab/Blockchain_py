@@ -26,4 +26,4 @@ class Blockchain:
       if(current.previous_hash != previous.generate_hash()):
         print("The previous block's hash is not equal to the previous hash value stored in the current block.")
         return False
-    return True
+      return True
