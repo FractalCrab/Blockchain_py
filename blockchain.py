@@ -27,7 +27,7 @@ class Blockchain:
         self.chain.append(new_block)
         return proof,new_block
 
-    """for checking and validatign chain"""
+    """for checking and validating chain"""
     def check_chain(self):
 
       for i in range(1, len(self.chain)):
